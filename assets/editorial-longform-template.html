@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Editorial Longform 独立网页模板">
+<title>文章标题｜Editorial Longform</title>
+<style>
+:root {
+  --paper:#f3f0e8; --ink:#171816; --muted:#62645f; --line:#d5d0c3;
+  --card:#fbf9f3; --accent:#ff5a36; --accent-soft:#ffe1d7; --dark:#20231f;
+  --max:1180px;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; line-height:1.78; }
+body::before { content:""; display:block; height:7px; background:var(--accent); }
+.layout { max-width:var(--max); margin:auto; display:grid; grid-template-columns:250px minmax(0,1fr); gap:52px; padding:36px 30px 80px; }
+.sidebar { position:sticky; top:24px; align-self:start; max-height:calc(100vh - 48px); overflow:auto; padding-right:16px; }
+.brand { margin:0 0 22px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+.brand b { display:block; font-size:19px; line-height:1.35; }
+.brand span { color:var(--muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+.sidebar a { display:block; padding:6px 0; color:var(--muted); text-decoration:none; font-size:13px; line-height:1.4; }
+.sidebar a:hover,.sidebar a:focus-visible { color:var(--accent); }
+.sidebar .small { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+main { min-width:0; }
+h1 { font-size:clamp(36px,6vw,72px); line-height:1.04; letter-spacing:-.04em; margin:20px 0 26px; max-width:900px; }
+.eyebrow { display:block; margin-bottom:16px; color:var(--accent); font-size:12px; letter-spacing:.18em; font-weight:700; text-transform:uppercase; }
+h2 { margin:78px 0 24px; padding-top:20px; border-top:2px solid var(--ink); font-size:clamp(25px,3vw,37px); line-height:1.25; letter-spacing:-.02em; }
+h3 { margin:38px 0 12px; font-size:21px; line-height:1.35; }
+p { margin:12px 0; }
+.lead { font-size:19px; }
+.metadata { margin:24px 0 32px; padding:16px 18px; border:1px solid var(--line); background:var(--card); color:var(--muted); font-size:13px; }
+.key-statement { margin:28px 0; padding:20px 24px; background:var(--dark); color:#fff; border-left:7px solid var(--accent); font-size:19px; }
+.key-statement p { margin:0; }
+strong { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; text-underline-offset:3px; }
+a { color:inherit; text-decoration-color:var(--accent); }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+ul,ol { padding-left:1.4em; }
+li { margin:5px 0; }
+table { width:100%; border-collapse:collapse; margin:24px 0 34px; background:var(--card); font-size:14px; }
+th,td { text-align:left; vertical-align:top; padding:12px 14px; border-bottom:1px solid var(--line); }
+th { background:var(--dark); color:#fff; font-weight:600; }
+tr:last-child td { border-bottom:0; }
+figure { margin:34px 0; }
+img { width:100%; height:auto; display:block; border:1px solid var(--line); background:#111; }
+figcaption { margin-top:8px; color:var(--muted); font-size:13px; }
+code { background:var(--accent-soft); padding:2px 5px; }
+.checklist { list-style:none; padding-left:0; }
+.checklist li { position:relative; padding-left:29px; margin:9px 0; }
+.checklist li::before { content:""; position:absolute; left:0; top:.42em; width:14px; height:14px; border:2px solid var(--accent); background:var(--card); }
+@media (max-width:850px) {
+  .layout { display:block; padding:24px 18px 64px; }
+  .sidebar { position:static; max-height:none; padding:0 0 24px; margin-bottom:28px; border-bottom:1px solid var(--line); }
+  .sidebar nav { display:none; }
+  h2 { margin-top:58px; }
+  .table-wrap { overflow-x:auto; }
+  table { min-width:560px; }
+}
+@media print {
+  body { background:white; }
+  body::before,.sidebar { display:none; }
+  .layout { display:block; max-width:none; padding:0; }
+  h2 { break-after:avoid; margin-top:32px; }
+  h3 { break-after:avoid; }
+  figure,table,.key-statement { break-inside:avoid; }
+  a { text-decoration:none; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="文章目录">
+    <div class="brand">
+      <span>Editorial Longform</span>
+      <b>文章短标题<br>或主题说明</b>
+    </div>
+    <nav>
+      <a href="#overview">快速导读</a>
+      <a href="#framework">核心框架</a>
+      <a href="#evidence">案例与证据</a>
+      <a href="#comparison">信息比较</a>
+      <a href="#checklist">行动清单</a>
+    </nav>
+    <div class="small">独立 HTML 文档<br>与本地资源文件夹一起保存即可长期打开。</div>
+  </aside>
+
+  <main>
+    <h1><span class="eyebrow">Article Notes / Topic</span>这里放置文章唯一的主标题</h1>
+
+    <div class="metadata">
+      来源：已经完成整理的内容<br>
+      作者或整理者：姓名<br>
+      更新时间：YYYY-MM-DD
+    </div>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">快速导读</h2>
+      <p class="lead">这里放置一段简洁导读，帮助读者理解文章解决什么问题、为什么值得阅读，以及接下来会看到什么。</p>
+      <p>普通正文保持连续、宽松的阅读体验。只对真正需要读者注意的<strong>短语级重点</strong>使用强调下划线。</p>
+      <div class="key-statement">
+        <p>这里放置整篇文章最重要的框架、结论，或一个决定后续阅读方向的关键问题。</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="framework">
+      <h2 id="framework">一、核心框架</h2>
+      <p>章节标题通过上方留白和深色横线制造停顿。正文解释框架的背景和含义，不需要把每一段包装成卡片。</p>
+      <h3>1. 第一个局部论点</h3>
+      <p>子标题用于章节内部的论述转折。接下来可以使用列表表达并列信息：</p>
+      <ul>
+        <li>第一项已经存在于原始内容中的事实或观点；</li>
+        <li>第二项与第一项处于同一语义层级；</li>
+        <li>第三项帮助读者形成完整理解。</li>
+      </ul>
+      <h3>2. 有顺序的过程</h3>
+      <ol>
+        <li>首先完成第一步；</li>
+        <li>根据结果进入下一步；</li>
+        <li>最后获得可验证的结果。</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="evidence">
+      <h2 id="evidence">二、案例与证据</h2>
+      <p>解释性图片应紧随相关论述出现。使用模板时，将下面的示意区域替换为真实图片；如果文章没有图片，删除整个 figure。</p>
+      <figure>
+        <svg role="img" aria-labelledby="demo-image-title demo-image-desc" viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg">
+          <title id="demo-image-title">解释性图片示意区域</title>
+          <desc id="demo-image-desc">暖灰背景上的深色框和珊瑚橙标记，用于示意图片位置。</desc>
+          <rect width="1200" height="620" fill="#20231f"/>
+          <rect x="90" y="85" width="1020" height="450" fill="#fbf9f3"/>
+          <rect x="145" y="145" width="390" height="34" fill="#171816"/>
+          <rect x="145" y="213" width="770" height="18" fill="#d5d0c3"/>
+          <rect x="145" y="251" width="650" height="18" fill="#d5d0c3"/>
+          <rect x="145" y="315" width="7" height="132" fill="#ff5a36"/>
+          <rect x="178" y="315" width="740" height="132" fill="#f3f0e8"/>
+        </svg>
+        <figcaption>图片说明应指出这张图支持了什么论点，而不只是重复图片标题。</figcaption>
+      </figure>
+      <p>图片之后回到正文，继续解释其中最值得注意的细节，让视觉停顿重新进入阅读流。</p>
+    </section>
+
+    <section aria-labelledby="comparison">
+      <h2 id="comparison">三、信息比较</h2>
+      <p>三个以上重复字段、时间轴或多方案比较适合使用表格。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>项目</th><th>适用条件</th><th>关键判断</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>方案 A</td><td>适合第一种明确场景</td><td>强调它解决的核心问题</td></tr>
+            <tr><td>方案 B</td><td>适合第二种明确场景</td><td>说明与方案 A 的真实差异</td></tr>
+            <tr><td>方案 C</td><td>只在特定条件下使用</td><td>列出限制或取舍</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">四、行动清单</h2>
+      <p>文章末尾可以用清单收束阅读，将已经存在的建议转化为便于检查的形式。</p>
+      <ul class="checklist">
+        <li>确认第一项关键条件已经满足。</li>
+        <li>检查最重要的结论是否得到证据支持。</li>
+        <li>保留下一次使用时需要回看的信息。</li>
+      </ul>
+    </section>
+  </main>
+</div>
+</body>
+</html>

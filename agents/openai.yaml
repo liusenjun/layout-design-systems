@@ -1,0 +1,4 @@
+interface:
+  display_name: "Layout Design Systems"
+  short_description: "Select and apply reusable visual layout systems"
+  default_prompt: "Use $layout-design-systems to recommend and apply a suitable layout design system to my finished content."
