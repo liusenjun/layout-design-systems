@@ -10,6 +10,17 @@
 |---|---|---|
 | Editorial Longform | 长篇阅读、学习笔记、内容总结和深度分享 | 可独立打开的 HTML 网页 |
 
+### 01 · Editorial Longform
+
+![Editorial Longform 设计系统概览](docs/previews/editorial-longform-preview.png)
+
+一种面向长篇阅读的编辑式网页设计系统。它使用暖灰纸张背景、近黑正文、珊瑚橙强调色、明确的标题层级和克制的高对比组件，在连续阅读中建立错落有致的视觉节奏。
+
+- 适用于：课程笔记、视频或播客总结、深度文章、方法论和知识文档
+- 视觉特征：编辑式排版、宽松正文行高、章节留白、重点色块、表格与解释性图片
+- 设计规范：[editorial-longform-design.md](design-systems/editorial-longform-design.md)
+- 网页模板：[editorial-longform-template.html](assets/editorial-longform-template.html)
+
 ## 安装
 
 将仓库克隆到个人 Codex Skills 目录：
@@ -57,14 +68,18 @@ layout-design-systems/
 ├── design-systems/
 │   ├── design-system-catalog.md
 │   └── editorial-longform-design.md
-└── assets/
-    └── editorial-longform-template.html
+├── assets/
+│   └── editorial-longform-template.html
+└── docs/
+    └── previews/
+        └── editorial-longform-preview.png
 ```
 
 - `SKILL.md`：负责设计系统的选择、加载、执行与验证流程。
 - `design-systems/`：保存每套设计系统的完整 Design MD。
 - `assets/`：保存生成视觉成品时复用的模板与资源。
 - `agents/openai.yaml`：定义 Skill 在 Codex 中的显示信息和默认提示。
+- `docs/previews/`：只用于 GitHub README 和项目展示，不参与 Skill 运行。
 
 ## 后续扩展
 
