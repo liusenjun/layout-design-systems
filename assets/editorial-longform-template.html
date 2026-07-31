@@ -13,10 +13,11 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; color:var(--ink); background:var(--paper); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; line-height:1.78; }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; font-size:18px; line-height:1.78; }
 body::before { content:""; display:block; height:7px; background:var(--accent); }
 .layout { max-width:var(--max); margin:auto; display:grid; grid-template-columns:250px minmax(0,1fr); gap:52px; padding:36px 30px 80px; }
 .sidebar { position:sticky; top:24px; align-self:start; max-height:calc(100vh - 48px); overflow:auto; padding-right:16px; }
+.nav-toggle { display:none; }
 .brand { margin:0 0 22px; padding-bottom:18px; border-bottom:1px solid var(--line); }
 .brand b { display:block; font-size:19px; line-height:1.35; }
 .brand span { color:var(--muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
@@ -29,10 +30,18 @@ h1 { font-size:clamp(36px,6vw,72px); line-height:1.04; letter-spacing:-.04em; ma
 h2 { margin:78px 0 24px; padding-top:20px; border-top:2px solid var(--ink); font-size:clamp(25px,3vw,37px); line-height:1.25; letter-spacing:-.02em; }
 h3 { margin:38px 0 12px; font-size:21px; line-height:1.35; }
 p { margin:12px 0; }
-.lead { font-size:19px; }
+.lead { font-size:inherit; }
 .metadata { margin:24px 0 32px; padding:16px 18px; border:1px solid var(--line); background:var(--card); color:var(--muted); font-size:13px; }
 .key-statement { margin:28px 0; padding:20px 24px; background:var(--dark); color:#fff; border-left:7px solid var(--accent); font-size:19px; }
 .key-statement p { margin:0; }
+.action-text-card { position:relative; margin:20px 0; padding:19px 22px 20px 50px; border:1px solid var(--line); background:var(--card); font-size:18px; line-height:1.78; }
+.action-text-card::before { content:"“"; position:absolute; left:17px; top:14px; color:var(--accent); font-family:Georgia,"Times New Roman",serif; font-size:37px; line-height:1; }
+.action-text-card::after { content:""; position:absolute; left:-1px; top:-1px; bottom:-1px; width:5px; background:var(--accent); opacity:0; transition:opacity .16s; }
+.action-text-card:hover::after,.action-text-card:focus-visible::after { opacity:1; }
+.action-text-card:focus-visible { outline:none; }
+.action-text-kind { position:absolute; right:17px; top:16px; color:#aaa79f; font-family:Georgia,"Times New Roman",serif; font-size:10px; line-height:1; letter-spacing:.14em; font-weight:600; }
+.action-text-label { display:block; margin:0 0 9px; padding-right:74px; color:var(--accent); font-size:10px; line-height:1; letter-spacing:.16em; font-weight:800; }
+.action-text-card p { width:100%; margin:0; }
 strong { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; text-underline-offset:3px; }
 a { color:inherit; text-decoration-color:var(--accent); }
 a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
@@ -49,6 +58,17 @@ code { background:var(--accent-soft); padding:2px 5px; }
 .checklist { list-style:none; padding-left:0; }
 .checklist li { position:relative; padding-left:29px; margin:9px 0; }
 .checklist li::before { content:""; position:absolute; left:0; top:.42em; width:14px; height:14px; border:2px solid var(--accent); background:var(--card); }
+@media (max-width:1179px) and (min-width:851px) {
+  .layout { display:block; max-width:880px; }
+  .sidebar { position:fixed; z-index:20; left:0; top:24px; width:38px; min-height:82px; max-height:82px; padding:0; overflow:hidden; border-left:7px solid var(--accent); background:var(--dark); color:#fff; transition:width 280ms cubic-bezier(.22,1,.36,1),max-height 280ms cubic-bezier(.22,1,.36,1),padding 280ms cubic-bezier(.22,1,.36,1),background-color 180ms ease,box-shadow 180ms ease; }
+  .nav-toggle { display:block; position:absolute; left:0; top:0; width:31px; min-height:82px; padding:8px 5px; border:0; background:transparent; color:#fff; font:inherit; font-size:11px; letter-spacing:.12em; writing-mode:vertical-rl; cursor:pointer; }
+  .nav-toggle:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+  .sidebar .brand,.sidebar nav,.sidebar .small { display:block; opacity:0; visibility:hidden; transform:translateX(-8px); transition:opacity 130ms ease,transform 180ms ease,visibility 0s linear 180ms; }
+  .sidebar:hover,.sidebar:has(.nav-toggle:focus-visible),.sidebar.is-open { width:238px; max-height:420px; padding:18px 20px 20px 50px; background:var(--card); color:var(--ink); box-shadow:0 18px 44px rgba(23,24,22,.18); }
+  .sidebar:hover .nav-toggle,.sidebar:has(.nav-toggle:focus-visible) .nav-toggle { color:var(--ink); }
+  .sidebar.is-open .nav-toggle { color:var(--ink); }
+  .sidebar:hover .brand,.sidebar:hover nav,.sidebar:hover .small,.sidebar:has(.nav-toggle:focus-visible) .brand,.sidebar:has(.nav-toggle:focus-visible) nav,.sidebar:has(.nav-toggle:focus-visible) .small,.sidebar.is-open .brand,.sidebar.is-open nav,.sidebar.is-open .small { opacity:1; visibility:visible; transform:none; transition-delay:90ms,90ms,0s; }
+}
 @media (max-width:850px) {
   .layout { display:block; padding:24px 18px 64px; }
   .sidebar { position:static; max-height:none; padding:0 0 24px; margin-bottom:28px; border-bottom:1px solid var(--line); }
@@ -56,6 +76,14 @@ code { background:var(--accent-soft); padding:2px 5px; }
   h2 { margin-top:58px; }
   .table-wrap { overflow-x:auto; }
   table { min-width:560px; }
+  .action-text-card { padding:18px 17px 19px 43px; }
+  .action-text-card::before { left:13px; }
+  .action-text-kind { right:14px; }
+  .action-text-label { padding-right:70px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { transition:none!important; }
 }
 @media print {
   body { background:white; }
@@ -63,7 +91,7 @@ code { background:var(--accent-soft); padding:2px 5px; }
   .layout { display:block; max-width:none; padding:0; }
   h2 { break-after:avoid; margin-top:32px; }
   h3 { break-after:avoid; }
-  figure,table,.key-statement { break-inside:avoid; }
+  figure,table,.key-statement,.action-text-card { break-inside:avoid; }
   a { text-decoration:none; }
 }
 </style>
@@ -71,6 +99,7 @@ code { background:var(--accent-soft); padding:2px 5px; }
 <body>
 <div class="layout">
   <aside class="sidebar" aria-label="文章目录">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="展开文章导航">目录</button>
     <div class="brand">
       <span>Editorial Longform</span>
       <b>文章短标题<br>或主题说明</b>
@@ -96,11 +125,16 @@ code { background:var(--accent-soft); padding:2px 5px; }
 
     <section aria-labelledby="overview">
       <h2 id="overview">快速导读</h2>
-      <p class="lead">这里放置一段简洁导读，帮助读者理解文章解决什么问题、为什么值得阅读，以及接下来会看到什么。</p>
+      <p class="lead">这里放置开篇段；它与普通正文使用同一字号，仅承担语义作用，不建立额外视觉层级。</p>
       <p>普通正文保持连续、宽松的阅读体验。只对真正需要读者注意的<strong>短语级重点</strong>使用强调下划线。</p>
       <div class="key-statement">
         <p>这里放置整篇文章最重要的框架、结论，或一个决定后续阅读方向的关键问题。</p>
       </div>
+      <aside class="action-text-card" tabindex="0" aria-label="示例提示词">
+        <span class="action-text-kind">PROMPT</span>
+        <span class="action-text-label">示例提示词</span>
+        <p>这里放置读者可以直接复制、改写或执行的操作型文本。根据语义，可将右上角类型替换为 COMMAND、QUERY 或 EXAMPLE。</p>
+      </aside>
     </section>
 
     <section aria-labelledby="framework">
@@ -169,5 +203,30 @@ code { background:var(--accent-soft); padding:2px 5px; }
     </section>
   </main>
 </div>
+<script>
+(() => {
+  const sidebar=document.querySelector('.sidebar');
+  const navToggle=document.querySelector('.nav-toggle');
+  if(!sidebar||!navToggle)return;
+  const closeNav=()=>{
+    sidebar.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded','false');
+    navToggle.setAttribute('aria-label','展开文章导航');
+  };
+  const toggleNavState=()=>{
+    const open=sidebar.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded',String(open));
+    navToggle.setAttribute('aria-label',open?'收起文章导航':'展开文章导航');
+  };
+  let pointerHandled=false;
+  navToggle.addEventListener('pointerdown',()=>{
+    pointerHandled=true;
+    toggleNavState();
+    setTimeout(()=>{pointerHandled=false;},0);
+  });
+  navToggle.addEventListener('click',()=>{if(!pointerHandled)toggleNavState();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeNav();});
+})();
+</script>
 </body>
 </html>
