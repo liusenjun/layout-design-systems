@@ -9,21 +9,7 @@
 | 设计系统 | 适用场景 | 输出形式 |
 |---|---|---|
 | Editorial Longform | 单语长文、课程笔记、内容总结、方法论和知识文档 | 可独立打开的 HTML 长文 |
-| Editorial Bilingual Longform | 英文文章的中文阅读、原文核对与连续中英阅读 | 具备三种语言模式的独立 HTML 长文 |
-
-## 已验证案例：Fable 双语长文
-
-![Fable Editorial Bilingual Longform 已验证案例](docs/previews/editorial-bilingual-longform-fable-preview.png)
-
-Fable 项目验证了双语长文在同一套页面中服务三种阅读路径的可行性：
-
-- **中文模式**：中文作为主阅读内容；悬浮、键盘聚焦或点击当前语义块时，在右侧查看对应英文原文。
-- **中英混排**：英文原文在上、中文译文在下，保持连续阅读，不增加翻译盒子或悬浮状态。
-- **英文模式**：英文作为主阅读内容，并以镜像交互在右侧查看中文译文。
-
-页面同时验证了中英文标题顺序、图片与双语图注、Key Statement、Action Text Card、精确对齐的翻译浮层、紧凑目录和移动端交互。
-
-Fable 的文章内容、图片数量与组件数量不属于模板约束；它是设计系统的真实验证案例，而不是后续文章必须复制的固定结构。
+| Editorial Bilingual Longform | 支持英文长文的中文阅读、中英混排与英文原文阅读三种排版模式 | 具备三种语言模式的独立 HTML 长文 |
 
 ## 01 · Editorial Longform
 
@@ -38,10 +24,13 @@ Fable 的文章内容、图片数量与组件数量不属于模板约束；它�
 
 ## 02 · Editorial Bilingual Longform
 
+![Editorial Bilingual Longform 双语长文页面预览](docs/previews/editorial-bilingual-longform-fable-preview.png)
+
 继承 Editorial Longform 的颜色、正文基准、组件骨架、图片、打印与无障碍规则，并增加三种语言模式、语义配对、中英字体分工、对照栏和双语组件规则。
 
+这套系统支持三种阅读路径：中文模式以中文为主并按需核对英文原文，中英混排模式按照英文在上、中文在下连续阅读，英文模式则以英文为主并按需查看中文译文。
+
 - 适用于：已有完整英文原文、需要忠实中文翻译与原文核对的长文章
-- 阅读路径：中文优先、连续中英混排、英文优先
 - 视觉特征：中文无衬线、英文衬线；中英正文同为 18px；中英间距 10px、语义组间距 30px
 - 设计规范：[editorial-bilingual-longform-design.md](design-systems/editorial-bilingual-longform-design.md)
 - 网页模板：[editorial-bilingual-longform-template.html](assets/editorial-bilingual-longform-template.html)
